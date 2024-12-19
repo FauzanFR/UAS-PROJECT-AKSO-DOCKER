@@ -16,6 +16,7 @@ UASP/
 │
 ├── docker-compose.yml  # File konfigurasi Docker Compose
 ├── index.html          # File HTML untuk halaman NGINX
+├── rabbitmq.conf       # File konfigurasi tambahan untuk RabbitMQ
 └── README.md           # Dokumentasi proyek ini
 ```
 
@@ -77,6 +78,7 @@ UASP/
 - Login menggunakan:
   - Username: `admin`
   - Password: `adminpassword`.
+- Menggunakan konfigurasi tambahan dari `rabbitmq.conf` untuk pengaturan lebih lanjut.
 
 ---
 
@@ -89,7 +91,7 @@ UASP/
    - Periksa apakah file `index.html` ada di folder yang sama dengan `docker-compose.yml`.
 
 3. **Tidak bisa login ke RabbitMQ:**
-   - Pastikan menggunakan username dan password yang benar (`admin` / `admin`).
+   - Pastikan menggunakan username dan password yang benar (`admin` / `adminpassword`).
 
 4. **MySQL tidak berjalan:**
    - Periksa log di terminal untuk melihat pesan kesalahan.
@@ -100,7 +102,7 @@ UASP/
 ## Penutup
 Proyek ini membuktikan kemampuan untuk:
 1. Menjalankan beberapa layanan dalam Docker menggunakan Docker Compose.
-2. Menggunakan volume dan jaringan untuk menghubungkan layanan.
+2. Menggunakan volume, jaringan, dan konfigurasi tambahan untuk menghubungkan layanan.
 3. Menyediakan fitur tambahan di setiap layanan.
 
 Jika ada pertanyaan atau masalah, jangan ragu untuk menghubungi saya!
