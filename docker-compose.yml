@@ -1,3 +1,4 @@
+name: Tugas AKSO
 services:
   web:
     image: nginx:latest
