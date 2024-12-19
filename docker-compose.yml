@@ -16,10 +16,10 @@ services:
     image: mysql:latest
     container_name: mysql_db
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: ujian
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
@@ -30,14 +30,14 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq_server
     ports:
-      - "15672:15672" 
+      - "15672:15672"
       - "5672:5672"
     networks:
       - mynetwork
     restart: always
-    environment:
-      RABBITMQ_DEFAULT_USER: admin
-      RABBITMQ_DEFAULT_PASS: admin
+    configs:
+      - source: rabbit_config
+        target: /etc/rabbitmq/rabbitmq.conf
 
 networks:
   mynetwork:
@@ -45,3 +45,7 @@ networks:
 
 volumes:
   mysql_data:
+
+configs:
+  rabbit_config:
+    file: ./rabbitmq.conf
